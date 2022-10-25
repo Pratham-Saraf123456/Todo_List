@@ -1,0 +1,65 @@
+extends index.pug 
+
+block content 
+    div(class="header") 
+        a(href="/") TODO 
+
+    div(class="contain")
+        div(class='toggleIcon toggleIconApply')
+            i(class="fa-solid fa-bars icon")
+        div(class="sideNav")
+            div(class='toggle')
+                ul
+                    li 
+                        a(href="/Task") Task
+                    li 
+                        a(href="/Important") Important
+                    li 
+                        a(href="/My Day") My Day
+            hr.line
+
+            
+        div(class='rightPart ')
+            div(class='heading')
+                //- <i class="fa-solid fa-bars icon1 toggleIconDis"></i>
+                h3.topic #{title} 
+
+            div(class='addText' )
+                div(class='formText')
+                    form(action="/addText", method="post")
+                        input(type="hidden", name="tit" value = title)
+                        input(type="text", name="desc" class="textArea")
+                        button(class='add') Add 
+
+                div(class='displayText')
+                    ul 
+                        each item in lst
+                            li.cont 
+                                form(action="/complete", method="post" class="delete") 
+                                    input(type="hidden", name="listId" , value = item._id)  
+                                    .topContFlex 
+                                        .btnClick 
+                                            button(type="submit" class="del compDel")
+                                                i(class=`fa-regular fa-circle ${"cir"+cnt}`) 
+                                                span Task #{cnt}
+                                        .secondFlex.starImp
+                                                //- button(type="submit" class="impBtn") 
+                                                //- input(/${ item._id }?tit=${title}type="hidden", name="listId" value= item._id)
+                                                a(href=`starPut/${ item._id }`) 
+                                                    input(type="hidden", name="impClicked" value= "true")
+                                                    i(class=`fa-regular fa-star ${"imp"+ cnt++ } `, class= `${item.fav===true ? "fa-solid":""}` )
+                                    p.task  #{item.desc}
+                            hr
+                div(class='displayCompleted') 
+                    if(listComp.length > 0)                        
+                        h3.compHeading Completed 
+                        ul 
+                                each item in listComp
+                                    li.cont 
+                                        form(action="/delComp", method="post" class="delete") 
+                                            button(type="submit" class="del")
+                                                input(type="hidden", name="compId" value = item._id)
+                                                <i class="fa-solid fa-trash-can trashIcon"></i> 
+                                                span Task #{cnt1++}
+                                            p.task.compTask #{item.desc}
+                                    hr
