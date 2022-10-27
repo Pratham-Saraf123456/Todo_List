@@ -3,8 +3,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const compression = require('compression');
+// const env = require("dotenv");
 
-
+require('dotenv').config()
 const app = express();
 const todoRoute=require('./router/todo.js');
 
