@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 // const env = require("dotenv");
-
 require('dotenv').config()
+
 const app = express();
 const todoRoute=require('./router/todo.js');
 
@@ -28,7 +28,10 @@ app.use(todoRoute)
 
 mongoose.connect('mongodb+srv://Nishank:2e6qinegEshobrmn@cluster0.sio3l.mongodb.net/todo?retryWrites=true&w=majority')
         .then(res => {
-            app.listen(process.env.PORT||3000);
+            // app.listen(process.env.PORT||3000);
+            app.listen(process.env.PORT || 3000, function(){
+                console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+              });
         })
         .catch(err => {
             console.log("found an error");
