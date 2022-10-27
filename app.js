@@ -27,7 +27,7 @@ app.use(todoRoute)
 
 mongoose.connect('mongodb+srv://Nishank:2e6qinegEshobrmn@cluster0.sio3l.mongodb.net/todo?retryWrites=true&w=majority')
         .then(res => {
-            app.listen(3000);
+            app.listen(process.env.PORT||3000);
         })
         .catch(err => {
             console.log("found an error");
