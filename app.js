@@ -23,7 +23,9 @@ const printLogStream = fs.createWriteStream(path.join(__dirname,'access.log'),{f
 app.set('view engine','pug');
 app.set('views','views');
 
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: false,
+  }));
 app.use(compression())
 app.use(morgan('combined',{stream:printLogStream}));
 
