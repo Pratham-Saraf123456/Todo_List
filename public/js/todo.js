@@ -17,12 +17,10 @@ for(let i=0;i<selectCircle2.length;i++){
 
 }
 
-// const selectStar = document.querySelectorAll(".starImp");
+const currDate=new Date();
+const year = currDate.getFullYear();
+const month = currDate.getMonth()+1;
+const day = currDate.getDate();
 
-// for(let i=0;i<selectStar.length;i++){
-//     // console.log(selectStar[i].classList.toggle("fa-solid"));
-//     selectStar[i].addEventListener('click',function(){
-//         document.querySelector(`${"."+"imp"+ (i+1)}`).classList.toggle("fa-solid");
-//     })
+document.getElementById("date").innerHTML=day+"/"+month+"/"+year;
 
-// }

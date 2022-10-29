@@ -104,6 +104,12 @@
     font-weight: 600;
 }
 
+#date{
+    font-size: 0.8rem;
+    font-weight: bolder;
+    
+}
+
 .addText{
     width: 100%;
     padding: 30px;
@@ -203,12 +209,7 @@
 
 
 
-/* .imp{
-    display: inline-block;
-    position:relative;
-    margin-left: 300px;
-    text-align: right;
-} */
+
 
 /* display completed */
 .compTask{
