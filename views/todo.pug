@@ -28,7 +28,7 @@ block content
                 div(class='formText')
                     form(action="/addText", method="post")
                         input(type="hidden", name="tit" value = title)
-                        input(type="text", name="desc" class="textArea")
+                        input(type="text", name="desc" class="textArea" required)
                         button(class='add') Add 
 
                 div(class='displayText')
