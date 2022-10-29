@@ -6,13 +6,6 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const helmet = require('helmet');
 const morgan = require('morgan');
-// const env = require("dotenv");
-// require('dotenv').config()
-
-// Nishank:2e6qinegEshobrmn todo
-// "start": " MONGO_USER=Nishank MONGO_PASSWORD=2e6qinegEshobrmn MONGO_DATABASE=todo  nodemon app.js",
-    
-//  console.log(process.env.MONGO_USER);
 
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.sio3l.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`;
 
