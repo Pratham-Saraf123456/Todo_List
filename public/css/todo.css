@@ -12,18 +12,27 @@
     padding: 30px;
     background-color: black;
     color: #FAF7F0;
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .header a{
+    margin-top: 3px;
     text-decoration: none;
     letter-spacing: 5px;
     font-size: 1.5rem;
-    line-height: 0.5rem;
+    line-height: 0.8rem;
     font-weight: bolder;
     color: #FAF7F0;
 }
 
+.logout button{
+    background-color: black;
+    color: #fff;
+    text-decoration: underline;
+}
 
 /* side navigation css */
 .sideNav{
