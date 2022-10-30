@@ -2,14 +2,13 @@ const express = require('express');
 
 const route = express.Router();
 const auth = require('../controller/auth');
-// const isAuth = require('../middleware/isAuth');
-// const todoController = require('../controller/todo');
+const isNotAuth = require('../middleware/isNotAuth');
+const todoController = require('../controller/todo');
 
 
+route.get('/',isNotAuth,auth.getLogin);
 
-route.get('/',auth.getLogin);
-
-route.get('/signup',auth.getSignup);
+route.get('/signup',isNotAuth,auth.getSignup);
 
 route.post('/sign-up',auth.postSignup);
 

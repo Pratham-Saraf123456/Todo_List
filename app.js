@@ -1,3 +1,4 @@
+// packages used
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -7,6 +8,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
+// package for authentication of the user 
 const session = require('express-session');
 const MongoDbStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
@@ -22,24 +24,28 @@ const csrfProtection = csrf();
 
 const printLogStream = fs.createWriteStream(path.join(__dirname,'access.log'),{flags:'a'});
 
-
+// storing our session in database
 const store = new MongoDbStore({
   uri:MONGODB_URI,
   collection:'session'
 });
 
+
 app.set('view engine','pug');
 app.set('views','views');
 
+// to set the addition header file required
 app.use(helmet({
     contentSecurityPolicy: false,
   }));
 app.use(compression())
 app.use(morgan('combined',{stream:printLogStream}));
 
+// to extract the data from the form posted
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(express.static(path.join(__dirname,'public')));
 
+// setting up the session
 app.use(session({
   secret:'my authentication',
   resave:false,
@@ -65,6 +71,7 @@ app.use((req,res,next)=>{
       })
 });
 
+// to set the local variable that is sent with each response
 app.use((req,res,next)=>{
   res.locals.isLoggedIn = req.session.isLoggedIn;
   res.locals.csrfToken = req.csrfToken();
@@ -72,21 +79,13 @@ app.use((req,res,next)=>{
   next();
 })
 
-// app.use('/',(req,res,next)=>{
-//     res.render('todo.pug')
-//     console.log("hello");
-// })
 
 app.use(authRoute);
 app.use(todoRoute);
 
-// app.listen(3000);
 
 mongoose.connect(MONGODB_URI)
         .then(res => {
-
-            //  app.listen(3000);
-            // app.listen(process.env.PORT||3000);
             app.listen(process.env.PORT || 3000, function(){
                 console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
               });
