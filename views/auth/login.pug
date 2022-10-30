@@ -1,0 +1,28 @@
+extends ../index.pug 
+
+block style 
+    link(rel="stylesheet", href="./css/auth.css")
+
+block content 
+
+    div( class="container h-100 ")
+    div( class="row h-100 justify-content-center align-items-center")
+        div( class="col-10 col-md-8 col-lg-6")
+            //-  Form 
+            form( class="form-example containForm" action="/login" method="post")
+                h1 Login
+                //-  Input fields 
+                div( class="form-group form")
+                    label( for="username") Username:
+                    input( type="text" class=" username" id="" placeholder="Email..." name="email")
+                div( class="form-group form")
+                    label( for="password") Password:
+                    input( type="password" class=" password" id="password" placeholder="Password..." name="password")
+
+
+                button( type="submit" class="btn btnForm ")  Login
+                //- <!-- End input fields -->
+               
+                p( class="copyright") Don't have an account? 
+                    a( href="/signup") Sign Up
+                input(type="hidden", name="_csrf" value=`${csrfToken}`)

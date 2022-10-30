@@ -34,6 +34,19 @@
     text-decoration: underline;
 }
 
+.headerLog{
+    padding: 30px;
+    background-color: black;
+    color: #FAF7F0;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 5px;
+    font-size: 1.5rem;
+    line-height: 0.8rem;
+    font-weight: bolder;
+    color: #FAF7F0;
+}
+
 /* side navigation css */
 .sideNav{
     width: 250px;

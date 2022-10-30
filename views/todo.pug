@@ -30,6 +30,8 @@ block content
                         input(type="hidden", name="tit" value = title)
                         input(type="text", name="desc" class="textArea" required)
                         button(class='add') Add 
+                        input(type="hidden", name="_csrf" value=`${csrfToken}`)
+                            
 
                 div(class='displayText')
                     ul 
@@ -49,6 +51,7 @@ block content
                                                     input(type="hidden", name="impClicked" value= "true")
                                                     i(class=`fa-regular fa-star ${"imp"+ cnt++ } `, class= `${item.fav===true ? "fa-solid":""}` )
                                     p.task  #{item.desc}
+                                    input(type="hidden", name="_csrf" value=`${csrfToken}`)
                             hr
                 div(class='displayCompleted') 
                     if(listComp.length > 0)                        
@@ -62,4 +65,5 @@ block content
                                                 <i class="fa-solid fa-trash-can trashIcon"></i> 
                                                 span Task #{cnt1++}
                                             p.task.compTask #{item.desc}
+                                            input(type="hidden", name="_csrf" value=`${csrfToken}`)
                                     hr

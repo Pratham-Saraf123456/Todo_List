@@ -6,6 +6,10 @@ const todoComp = new Schema({
     desc : {
         type : String,
         require : true
+    },
+    userId:{
+        type : Schema.Types.ObjectId,
+        ref:'User'
     }
 });
 

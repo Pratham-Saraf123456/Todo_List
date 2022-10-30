@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    background-color: #FAF7F0;
+}
+
+.containForm{
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+    text-align: center;
+    border: 2px solid;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.form{
+    text-align: left;
+    /* margin: 1.5rem; */
+    padding: 0.3rem;
+    line-height: 3rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+
+}
+
+.btnForm{
+    border: 1px solid;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 10rem;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+}
+
+.btnForm:hover{
+    background-color: #FAF7F0;
+    color: black;
+    border: 1px solid;
+}
+
+.username,.password{
+    display: block;
+    width: 100%;
+    background-color: white;
+    border: 0.1px ;
+    border-style: ridge;
+    border-radius: 10px;
+    height: 2.6rem;
+    padding: 15px;
+    font-size:medium;
+}
